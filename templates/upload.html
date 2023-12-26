@@ -1,0 +1,59 @@
+{% include 'header.html' %}
+{% from "bootstrap5/form.html" import render_form %}
+<body>
+<div class="my-3 ml-3">
+    <h1 style="color:red;">Upload a Photo</h1>
+</div>
+<div class="container justify-content-center">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-sm-12">
+            <h2>Upload your images here. Please note:</h2>
+            <ul>
+                <li>
+                    Accepted image file formats .JPEG .JPG or .PNG
+                </li>
+                <li>
+                    Image file must be smaller than 2.5 MB
+                </li>
+                <li>
+                    Down sampler is to conserve computation and more importantly to be able to visualize pixels
+                </li>
+                <li>
+                    Sampler factor must be more than 10, if not sure leave blank, preprocessor will select a value
+                    based on the image dimensions
+                </li>
+                <li>
+                    For a factor of 10 and a 400px by 400px image, you are sampling 40px by 40px or 1600 points
+                </li>
+                <li>
+                    Check the <a href="{{url_for('visualize3')}}#ex1">3d</a> and <a
+                        href="{{url_for('visualize2')}}#ex1">2d</a> illustrations and the respective image sizes and
+                    down sampler selected
+                    to get an idea
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-6 col-sm-12">
+            {{ render_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+        </div>
+        <p style="font-size:10px; padding-top:10px; padding-left:10px;">
+            * It's important to clarify that no images are collected or stored on
+            the server during runtime. When you upload an image, the processing occurs in real-time on the server. The
+            processing function extracts RGB values, which are then passed to the function responsible for rendering
+            the results page.
+            The data points derived from the processing are embedded directly in the HTML and used exclusively by your
+            browser to plot the three charts you see. Importantly, once you refresh the page, all data is automatically
+            and permanently erased.
+        </p>
+    </div>
+</div>
+<script>
+    var masthead = document.getElementById("master");
+    masthead.style.backgroundImage ="url('')";
+    masthead.style.padding = "0 0";
+    var pH = document.getElementById("ph");
+    pH.style.display = 'none';
+
+</script>
+
+{% include 'footer.html' %}

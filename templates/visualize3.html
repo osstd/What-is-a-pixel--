@@ -1,0 +1,188 @@
+{% include 'header.html' %}
+<body>
+<div class="container pt-4 col-lg-5">
+    <div class="description-container">
+        <h2 style="padding-bottom:20px;">Visualizing Pixel Components with 3d Bar Segments</h2>
+        <p>
+            In this visualization, we leverage a 3d bar plot using the matplotlib library in python
+            to provide an intuitive representation of each pixel's data. The goal is to gain insights into the
+            composition
+            of each pixel.
+        </p>
+
+        <h3 id="sampling">Interesting simplification, <b>down-sampling</b></h3>
+        <p>
+            Down-sampling not only enhances computational efficiency but also introduces a crucial aspect in
+            the visualization process—maintaining a gap between pixels. This separation, dictated by the
+            down-sampling factor, adheres to the standard in modern digital images. The intentional gap
+            between densely packed pixels aids the human eye in visualizing separate pixels, which aligns
+            with the primary purpose of our visualization tool.
+        </p>
+        <p style="font-size:18px;">Benefits of pixel separation:</p>
+        <ol>
+            <li>
+                Enhanced Visualization: The separation imposed by down-sampling enhances the visual
+                clarity of individual pixels. This deliberate gap facilitates a clearer understanding
+                of the unique characteristics of each pixel within the image.
+            </li>
+            <li>
+                Standardized Representation: The down-sampling factor introduces a consistent and
+                standardized separation between pixels, aligning with the conventions followed in
+                contemporary digital imaging. This standardization contributes to a more interpretable
+                and meaningful visualization.
+            </li>
+        </ol>
+
+        <h3>Visualization technique</h3>
+        <p>
+            The 3d bar plot serves as an effective tool to represent the normalized components of
+            each pixel. Here's how it works:
+        </p>
+        <ol>
+            <li>
+                Bar Height: All bars have the same total height. The height of each of the three individual segments of
+                the bar corresponds to the percentage of the respective color component. A taller segment
+                indicates a higher contribution of that color to the pixel.
+            </li>
+            <li>
+                Color Coding: Bar segments are color-coded to represent the RGB components. For instance,
+                red, green, and blue are visually distinguished to offer a quick understanding of the color
+                composition at each pixel.
+            </li>
+        </ol>
+        <h3>Effectiveness of Normalization</h3>
+        <p>
+            Normalization is a critical aspect of our visualization process. It ensures that the sum of
+            color components at each pixel equals 100%, providing a standardized and comparable
+            representation. This normalization enhances the interpretability of the 3d bar segments plot.
+        </p>
+        <h3>Interactive Exploration</h3>
+        <p>
+            Feel free to interact with the visualization. The python script could be found <a href=""> here.</a>
+            Observe how the down-sampled pixel data unfolds in a 3d space,
+            providing a unique perspective on the color distribution within the image. Feel free to play
+            around with the sampling factor if you have a high-performance machine, it is recommended to always keep a
+            gap, as this imposes a separation between the densely packed pixels. As explained earlier, the separation
+            aids the naked eye with the visualization of separate pixels which is the purpose of this tool.</p>
+
+        <p>
+            This 3d representation simplifies the complex nature of pixel data, making it accessible and
+            insightful. Explore the visual richness and nuances of images through this innovative approach.
+        </p>
+    </div>
+</div>
+<div class="container col-lg-5">
+    <div class="description-container">
+        <h2>
+            Illustrations:
+        </h2>
+    </div>
+</div>
+
+<div class="row" id="ex1">
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows/11.png')}}" alt="Photo 1">
+        <div class="description">56x40 pixelated image contains rgb
+            (<span style="color:rgb(1,0,0);">1</span>, <span style="color:rgb(0,23,0);">23</span>,
+            <span style="color:rgb(0,0,126);">126</span>) and white
+        </div>
+    </div>
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows/12.png')}}" alt="Photo 2">
+        <div class="description">3d bar segments analysis of image in matplotlib, downsampling every 4 pixels</div>
+    </div>
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows/13.png')}}" alt="Photo 3">
+        <div class="description">closeup of rgb(<span style="color:rgb(1,0,0);">1</span>, <span
+                style="color:rgb(0,23,0);">23</span>,
+            <span style="color:rgb(0,0,126);">126</span>) bars and white bars rgb(<span
+                    style="color:rgb(255,0,0);">255</span>,
+            <span style="color:rgb(0,255,0);">255</span>,<span style="color:rgb(0,0,255);">255</span>)
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows/21.jpg')}}" alt="Photo 1">
+        <div class="description">277x272 image contains rgb(<span style="color:rgb(0,0,0);">0</span>,
+            <span style="color:rgb(0,255,0);">255</span>,<span style="color:rgb(0,0,3);">3</span>)
+        </div>
+    </div>
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows/22.png')}}" alt="Photo 2">
+        <div class="description">3d bar segments analysis of image in matplotlib, down sampling every 10 pixels</div>
+    </div>
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows/23.png')}}" alt="Photo 3">
+        <div class="description">Green rgb(<span style="color:rgb(0,0,0);">0</span>,
+            <span style="color:rgb(0,255,0);">255</span>,<span style="color:rgb(0,0,3);">3</span>), hex(#00FF03).Try
+            <a href="https://redketchup.io/color-picker">here</a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows/31.png')}}" alt="Photo 1">
+        <div class="description">
+            225x225 image contains rgb(<span style="color:rgb(15,0,0);">15</span>,
+            <span style="color:rgb(0,111,0);">111</span>,<span style="color:rgb(0,0,1);">1</span>) and white rgb
+            (<span style="color:rgb(255,0,0);">255</span>,<span style="color:rgb(0,255,0);">255</span>,
+            <span style="color:rgb(0,0,255);">255</span>) over the four corners
+        </div>
+    </div>
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows/32.png')}}" alt="Photo 2">
+        <div class="description">3d bar segments analysis of image in matplotlib, down sampling every 10
+            pixels
+        </div>
+    </div>
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows/33.png')}}" alt="Photo 3">
+        <div class="description">
+            Dark green rgb(<span style="color:rgb(15,0,0);">15</span>,<span style="color:rgb(0,111,0);">111</span>,
+            <span style="color:rgb(0,0,1);">1</span>), hex(#0F6F01)
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows/41.jpeg')}}" alt="Photo 1">
+        <div class="description">962x641 image of myself</div>
+    </div>
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows/42.png')}}" alt="Photo 2">
+        <div class="description">3d bar segments analysis of image in matplotlib, down sampling every 20
+            pixels
+        </div>
+    </div>
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows/43.png')}}" alt="Photo 3">
+        <div class="description">A well-exposed photo, the histogram peaks for the red, green, and blue channels
+            occurring at approximately the same locations
+        </div>
+    </div>
+</div>
+
+
+<div class="row mx-1">
+    <p style="font-size:10px; padding-top:10px; padding-left:10px;">
+        Note: the images shown above in the first column on the left have been slightly modified in formatting. The
+        actual
+        dimensions are reported below each image. Also, the images are shown true to their dimensions on the
+        illustrations
+        in the ChartPlot section.
+    </p>
+</div>
+
+<div class="container mt-4 mb-2 py-2">
+    <div class="row justify-content-center">
+        <div class="px-1"><a class="btn btn-primary" href="{{url_for('home')}}">Home</a></div>
+        <div class="px-1"><a class="btn btn-primary" href="{{url_for('upload')}}">Try now!</a></div>
+        <div class="px-1"><a class="btn btn-primary" href="{{url_for('visualize2')}}">Visualize ChartPlot</a></div>
+    </div>
+</div>
+
+{% include 'footer.html' %}

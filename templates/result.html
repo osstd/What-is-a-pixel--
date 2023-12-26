@@ -1,0 +1,55 @@
+{% include 'header.html' %}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    var heightData = {{ height|tojson|safe }};
+    var widthData = {{ width|tojson|safe }};
+    var colorData = {{ colors|tojson|safe }};
+
+
+</script>
+<body>
+
+<div class="container pt-2 col-lg-5">
+    <div class="description-container">
+        <h2 style="padding-bottom:20px;">RGB Online Chart Results</h2>
+    </div>
+</div>
+
+<div class="container-fluid center-charts">
+    <div class="row">
+        <div class="mx-3 py-2 px-2" style="width: {{w}}px; height:{{h}}px;">
+            <canvas id="RedChart" style="width:100%; height:100%;"></canvas>
+        </div>
+        <div class="mx-3 py-2 px-2" style="width: {{w}}px; height:{{h}}px;">
+            <canvas id="GreenChart" style="width:100%; height:100%;"></canvas>
+        </div>
+        <div class="mx-3 py-2 px-2" style="width: {{w}}px; height:{{h}}px;">
+            <canvas id="BlueChart" style="width:100%; height:100%;"></canvas>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4 mb-2 py-2">
+    <div class="row justify-content-center">
+        <div class="px-1"><a class="btn btn-primary" href="{{url_for('home')}}">Home</a></div>
+        <div class="px-1"><a class="btn btn-primary" href="{{url_for('upload')}}">Try again!</a></div>
+        <div class="px-1"><a class="btn btn-primary" href="{{url_for('visualize3')}}">BarPlot</a></div>
+        <div class="px-1"><a class="btn btn-primary" href="{{url_for('visualize2')}}">ChartPlot</a></div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+    var masthead = document.getElementById("master");
+    masthead.style.backgroundImage ="url('')";
+    masthead.style.padding = "0 0";
+    var pH = document.getElementById("ph");
+    pH.style.display = 'none';
+
+</script>
+{% include 'footer.html' %}

@@ -1,0 +1,109 @@
+        .description-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            h1, h2, h3, p {
+                        text-align: left;
+                      }
+            h2 {
+
+                }
+            h3 {
+                margin-top: 25px;
+                font-size:22px;
+                }
+            b {
+                color:red;
+                }
+            }
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-bottom: 20px;
+
+        }
+
+        .cell {
+            flex: 1;
+            margin: 20px;
+            text-align: center;
+        }
+
+        img {
+            width: 350px;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .description {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .masthead {
+            background-image: url('https://i.gifer.com/OCOp.gif');
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 10px 5px;
+            z-index: 1000;
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar li {
+            margin: 0 15px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .masthead-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        .center-charts {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+

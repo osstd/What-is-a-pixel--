@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.ico') }}">
+    <title>What is a pixel?</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/styles.css')}}">
+</head>
+<header class="masthead" id="master">
+    <nav class="navbar">
+        <ul>
+            <li><a href="{{url_for('home')}}">Home</a></li>
+            <li><a href="{{url_for('upload')}}">Try now!</a></li>
+            <li><a href="{{url_for('visualize3')}}">Visualize BarPlot</a></li>
+            <li><a href="{{url_for('visualize2')}}">Visualize ChartPlot</a></li>
+        </ul>
+    </nav>
+    <div class="masthead-content">
+        <h1>Pixels</h1>
+        <p id="ph">So what's all this?</p>
+    </div>
+</header>

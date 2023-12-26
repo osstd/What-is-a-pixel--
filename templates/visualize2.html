@@ -1,0 +1,313 @@
+{% include 'header.html' %}
+<body>
+<div class="container pt-4 col-lg-5">
+    <div class="description-container">
+        <h2 style="padding-bottom:20px;">Visualizing Pixel Components with 2D Charts</h2>
+        <p>
+            In our exploration of pixel data, we employ 2d chart plots to provide a clear visualization of
+            the unpacking process and the effectiveness of down-sampling. The goal is to shed light on the
+            individual RGB components of each pixel, offering insights into the color distribution within
+            the image.
+        </p>
+        <h3><b>Down-sampling</b></h3>
+        <p>
+            Down-sampling plays a crucial role in simplifying the complexity of images for analysis. By
+            reducing the pixel density, we create a manageable representation that not only improves
+            computational efficiency but also enhances the interpretability of pixel components.
+            More on down sampling<a href="{{url_for('visualize3')}}#sampling"> here.</a>
+        </p>
+
+        <h3>Visualization technique</h3>
+        <p>
+            The 2d chart plots serves as an effective tool to represent the three individual components of
+            each pixel. Here's how it works:
+        </p>
+        <ol>
+            <li>
+                Three Separate Plots:
+                <ul style="margin:10px;">
+                    <li>
+                        In our approach, each pixel is unpacked into its RGB components.
+                    </li>
+                    <li>
+                        The red, green, and blue components are individually plotted on three separate charts.
+                    </li>
+                    <li>
+                        Each chart corresponds to a specific RGB component, namely the red plot, green plot, and blue
+                        plot.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Markers:
+                <p style="margin-top:10px;">There are three types of 2d plots:</p>
+                <ol>
+                    <li style="margin:10px;">
+                        <p style="margin-bottom:5px;">RGB plot:</p>
+                        <ul>
+                            <li>
+                                The marker used in the plots is a circular marker.
+                            </li>
+                            <li>
+                                When the color in the r or g or b channel is divided by 255 in the preprocessor we
+                                obtain a value that ranges anywhere between 1 for 255 and 0. Any color above
+                                0.175 in the r or g or b channel is plotted on the corresponding plot using that
+                                value.
+                            </li>
+                            <li>
+                                0.175 is chosen to emphasize the significance of the different components as values
+                                closer to 0 tend to black and are thus ignored.
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li style="margin:10px;">
+                        <p style="margin-bottom:5px;">RGB plot with emphasis on Black:</p>
+                        <ul>
+                            <li>
+                                The marker used in the plots is a circular marker.
+                            </li>
+                            <li>
+                                Any value above 0.175 in the r or g or b channel is plotted on the corresponding plot
+                                using that value.
+                            </li>
+                            <li>
+                                Any value between 0.1 and 0.175 is plotted using a black circular marker that is white
+                                on the inside to highlight less significant contributions.
+                            </li>
+                            <li>
+                                Any value between 0 and 0.1 is plotted using a black star to show black pixels and
+                                pixels
+                                that tend to black rgb(0,0,0).
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <p style="margin-bottom:5px;">RGB values plot:</p>
+                        <ul>
+                            <li>
+                                The actual value of the r or g or b channel component is plotted.
+                            </li>
+                            <li>
+                                It is recommended to use a higher down sampler to be able to read the individual
+                                pixel (r, g, b) values readily.
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+
+            </li>
+            <li>
+                Color Representation:
+                <ul style="margin:10px;">
+                    <li>
+                        The color of each circle on the red, green, or blue plot corresponds to the color
+                        of the respective RGB component at that pixel.
+                    </li>
+                    <li>
+                        This color representation provides a visual link between the charts, offering a comprehensive
+                        view of the color distribution.
+                    </li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>Interactive Exploration</h3>
+        <p>
+            Feel free to interact with the charts. RGB plot<a href=""> here. </a>RGB plot with emphasis on Black<a
+                href="">
+            here. </a>
+            RGB values plot<a href=""> here. </a>Observe how the down-sampled pixel data is represented on the
+            red,
+            green, and blue plots. The circular markers offer a unique perspective on the color composition, making it
+            easier to discern and analyze individual pixel components.
+        </p>
+
+        <p>
+            This 2d representation simplifies the intricacies of pixel data, providing a visual journey into the RGB
+            components of each pixel within the image.
+        </p>
+    </div>
+</div>
+<div class="container col-lg-5">
+    <div class="description-container">
+        <h2>
+            Illustrations:
+        </h2>
+    </div>
+</div>
+
+<div class="row" id="ex1">
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows2/11.png')}}" alt="Photo 1">
+        <div class="description">
+            225x225 image contains rgb(<span style="color:rgb(15,0,0);">15</span>,
+            <span style="color:rgb(0,111,0);">111</span>,<span style="color:rgb(0,0,1);">1</span>) and white rgb
+            (<span style="color:rgb(255,0,0);">255</span>,<span style="color:rgb(0,255,0);">255</span>,
+            <span style="color:rgb(0,0,255);">255</span>) over the four corners
+        </div>
+    </div>
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows2/12.png')}}" alt="Photo 2">
+        <div class="description">2d chart plot of red channel in matplotlib, downsampling every 5 pixels</div>
+    </div>
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows2/13.png')}}" alt="Photo 3">
+        <div class="description">2d chart plot of green channel in matplotlib, downsampling every 5 pixels</div>
+    </div>
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows2/14.png')}}" alt="Photo 4">
+        <div class="description">2d chart plot of blue channel in matplotlib, downsampling every 5 pixels</div>
+    </div>
+    <div>
+        <p style="margin-left:30px;">
+            The white on the four corners is shown on the red, green and blue plots corners with pure (r,g,b) values
+            showing they tend to
+            (<span style="color:#FF0000;">1</span>, <span style="color:#00FF00;">1</span>, <span style="color:#0000FF;">1</span>).
+            The green component in rgb(<span style="color:rgb(15,0,0);">15</span>,
+            <span style="color:rgb(0,111,0);">111</span>,<span style="color:rgb(0,0,1);">1</span>) contributes to the
+            darker green markers in the middle of the green plot
+        </p>
+    </div>
+    `
+</div>
+
+<div class="row">
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows2/21.jpg')}}" alt="Photo 1">
+        <div class="description">1000x1416 pixelated image of a panda</div>
+    </div>
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows2/22.png')}}" alt="Photo 2">
+        <div class="description">2d chart plot of red channel in matplotlib, downsampling every 15 pixels</div>
+    </div>
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows2/23.png')}}" alt="Photo 3">
+        <div class="description">2d chart plot of green channel in matplotlib, downsampling every 15 pixels</div>
+    </div>
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows2/24.png')}}" alt="Photo 4">
+        <div class="description">2d chart plot of blue channel in matplotlib, downsampling every 15 pixels</div>
+    </div>
+    <div>
+        <p style="margin-left:30px;">
+            The white on the panda's face is shown on his face on the red, green and blue plots with pure
+            (r,g,b) values highlighted as they tend to
+            (<span style="color:#FF0000;">1</span>, <span style="color:#00FF00;">1</span>, <span style="color:#0000FF;">1</span>).
+            The green component in the background and bottom right is highlighted on the green plot. The black on the
+            ears, eyes and the bottom left is ignored as the rgb is < 0.175. The black component will be highlighted on
+            the next row.
+        </p>
+    </div>
+    <div>
+        <p style="margin-left:30px;">
+            The important reasoning behind why the panda's image is pixelated and why the source image has exactly 1600
+            pixels, could be found <a href="https://www.wwf.org.uk/updates/world-wildlife-conservation-day">here</a>.
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows2/21.jpg')}}" alt="Photo 1">
+        <div class="description">1000x1416 pixelated image of a panda</div>
+    </div>
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows2/32.png')}}" alt="Photo 2">
+        <div class="description">2d chart plot of red channel in matplotlib, downsampling every 15 pixels</div>
+    </div>
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows2/33.png')}}" alt="Photo 3">
+        <div class="description">2d chart plot of green channel in matplotlib, downsampling every 15 pixels</div>
+    </div>
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows2/34.png')}}" alt="Photo 4">
+        <div class="description">2d chart plot of blue channel in matplotlib, downsampling every 15 pixels</div>
+    </div>
+    <div>
+        <p style="margin-left:30px;">
+            The white on the panda's face is shown on his face on the red, green and blue plots with pure
+            (r,g,b) values highlighted as they tend to
+            (<span style="color:#FF0000;">1</span>, <span style="color:#00FF00;">1</span>, <span style="color:#0000FF;">1</span>).
+            The green component in the background and bottom right corner is highlighted on the green plot. The black on
+            the ears, eyes and the bottom left corner is shown as black stars *. The low red and blue values in the
+            background between the ears and on some patches on the bottom right are shown as the hollow 'o' on the red
+            and blue plots.
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows2/41.jpeg')}}" alt="Photo 1">
+        <div class="description">962x641 image of myself</div>
+    </div>
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows2/42.png')}}" alt="Photo 2">
+        <div class="description">2d chart plot of red channel in matplotlib, downsampling every 10 pixels</div>
+    </div>
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows2/43.png')}}" alt="Photo 3">
+        <div class="description">2d chart plot of green channel in matplotlib, downsampling every 10 pixels</div>
+    </div>
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows2/44.png')}}" alt="Photo 4">
+        <div class="description">2d chart plot of blue channel in matplotlib, downsampling every 10 pixels</div>
+    </div>
+    <div>
+        <p style="margin-left:30px;">
+            A well-exposed photo, the histogram peaks for the red, green, and blue channels are occurring at
+            approximately
+            the same locations. The reg, green and blue plots are balanced with no areas showing bias towards a
+            particular color channel than the others. Lighter red, green and blue components are observed on the face,
+            in the background and on the tip of the white shirt. Darker red, green and blue components are observed on
+            the
+            hair, beard and on the grey shirt. This is an RGB plot that doesn't highlight low rgb values or black so
+            darker
+            patches on the beard and hair are ignored (hence the white patches on the plots). In a similar way to the
+            first
+            panda plot on the second row.
+        </p>
+        <p style="margin-left:30px;">
+            It is satisfying to think that if you superimpose the blue plot on the green plot on the red plot you will
+            end up
+            with the source image, with its actual color composition.
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows2/51.jpg')}}" alt="Photo 1">
+        <div class="description">277x272 image contains RGB(0, 255, 3)</div>
+    </div>
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows2/52.png')}}" alt="Photo 2">
+        <div class="description">2d chart plot of red channel values in matplotlib, downsampling every 25 pixels</div>
+    </div>
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows2/53.png')}}" alt="Photo 3">
+        <div class="description">2d chart plot of green channel values in matplotlib, downsampling every 25 pixels</div>
+    </div>
+    <div class="cell">
+        <img src="{{url_for('static', filename='assets/img/rows2/54.png')}}" alt="Photo 4">
+        <div class="description">2d chart plot of blue channel values in matplotlib, downsampling every 25 pixels</div>
+    </div>
+    <div>
+        <p style="margin-left:30px;">
+            This is an RGB values plot, the third type of 2d plots.Green rgb(0, <span style="color:#00FF00;">255</span>,
+            <span style="color:#000003;">3</span>) is shown here. The red channel component values are all 0. The
+            green channel component values are all 1. The negligible blue channel values are all 0.01.
+        </p>
+    </div>
+</div>
+
+<div class="container mt-4 mb-2 py-2">
+    <div class="row justify-content-center">
+        <div class="px-1"><a class="btn btn-primary" href="{{url_for('home')}}">Home</a></div>
+        <div class="px-1"><a class="btn btn-primary" href="{{url_for('upload')}}">Try now!</a></div>
+        <div class="px-1"><a class="btn btn-primary" href="{{url_for('visualize3')}}">Visualize BarPlot</a></div>
+    </div>
+</div>
+{% include 'footer.html' %}

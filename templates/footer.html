@@ -1,0 +1,42 @@
+<footer class="footer pt-3 pb-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 order-md-1 order-2 text-md-left" style="font-size: 12px;">© What is a pixel? <span
+                    id="currentYear">2023</span></div>
+            <div class="col-md-6 order-md-2 order-1 text-md-right" id="currentDateTime" style="font-size:14px;">Dec 25,
+                2023 11:08 PM
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+    function updateCurrentDateTime() {
+        var currentDateTimeElement = document.getElementById('currentDateTime');
+        var currentDate = new Date();
+
+        //Year only for statement
+        var currentYear = currentDate.getFullYear();
+
+        // Insert year
+        document.getElementById("currentYear").innerText = currentYear;
+
+        // Format date
+        var dateOptions = { month: 'short', day: 'numeric', year: 'numeric' };
+        var formattedDate = currentDate.toLocaleString(undefined, dateOptions);
+
+        // Format time
+        var timeOptions = { hour: 'numeric', minute: 'numeric', hour12: true };
+        var formattedTime = currentDate.toLocaleString(undefined, timeOptions);
+
+        // Combine date and time
+        var formattedDateTime = formattedDate + ' ' + formattedTime;
+
+        currentDateTimeElement.textContent = formattedDateTime;
+        }
+
+    // Update the current date and time initially
+    updateCurrentDateTime();
+
+</script>
+</body>
+</html>
