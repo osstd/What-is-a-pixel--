@@ -240,7 +240,7 @@
 <div class="row">
     <div class="cell">
         <img src="{{url_for('static', filename='assets/img/rows2/41.jpeg')}}" alt="Photo 1">
-        <div class="description">962x641 image of myself</div>
+        <div class="description">962x641 image of author</div>
     </div>
     <div class="cell">
         <img src="{{url_for('static', filename='assets/img/rows2/42.png')}}" alt="Photo 2">
@@ -304,9 +304,9 @@
 
 <div class="container mt-4 mb-2 py-2">
     <div class="row justify-content-center">
-        <div class="px-1"><a class="btn btn-primary" href="{{url_for('home')}}">Home</a></div>
-        <div class="px-1"><a class="btn btn-primary" href="{{url_for('upload')}}">Try now!</a></div>
-        <div class="px-1"><a class="btn btn-primary" href="{{url_for('visualize3')}}">Visualize BarPlot</a></div>
+        <div class="px-1 mb-2"><a class="btn btn-primary" href="{{url_for('home')}}">Home</a></div>
+        <div class="px-1 mb-2"><a class="btn btn-primary" href="{{url_for('upload')}}">Try now!</a></div>
+        <div class="px-1 mb-2"><a class="btn btn-primary" href="{{url_for('visualize3')}}">Visualize BarPlot</a></div>
     </div>
 </div>
 {% include 'footer.html' %}

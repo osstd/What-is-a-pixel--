@@ -1,6 +1,6 @@
 import numpy as np
 from PIL import Image
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from wtforms import SubmitField, IntegerField, validators
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileRequired, FileAllowed, FileSize
@@ -17,7 +17,7 @@ class UploadForm(FlaskForm):
                      validators=[
                          FileRequired(),
                          FileAllowed(['jpg', 'jpeg', 'png'], message='Image is not .JPG or .JPEG or .PNG'),
-                         FileSize(max_size=2.5 * 1024 * 1024, message='Image must be less than 2.5 MB')
+                         FileSize(max_size=3.0 * 1024 * 1024, message='Image must be less than 2.5 MB')
                      ])
     down_sampler = IntegerField("Sampler Factor",
                                 description="Enter a value for down sampling.",
@@ -27,6 +27,7 @@ class UploadForm(FlaskForm):
                                 ]
                                 )
     submit = SubmitField("Submit/Process")
+    reverse = SubmitField("Reverse")
 
 
 def open_image(image, down_sampler):
@@ -77,6 +78,8 @@ def upload():
     form = UploadForm()
     if form.validate_on_submit():
         height, width, colors, w, h = open_image(Image.open(form.file.data), form.down_sampler.data)
+        if 'reverse' in request.form:
+            return render_template('result.html', height=height, width=width, colors=colors, w=h, h=w, reverse='true')
         return render_template('result.html', height=height, width=width, colors=colors, w=w, h=h)
     return render_template('upload.html', form=form)
 

@@ -1,6 +1,7 @@
 var x = widthData
 var y = heightData
 var colors = colorData
+var reverseD= reverse
 
 var datasets = {
         red: [],
@@ -8,22 +9,38 @@ var datasets = {
         blue: []
     };
 
-    for (var i = 0; i < x.length; i++) {
-        for (var j = 0; j < y.length; j++) {
+runChart();
+
+function runChart() {
+for (var i = 0; i < x.length; i++) {
+    for (var j = 0; j < y.length; j++) {
+        if (reverseD) {
             for (var k = 0; k < 3; k++) {
-                var colorValue = (colors[j][i][k].toFixed(3));
+                var colorValue = colors[j][i][k].toFixed(3);
+                if (k === 0) {
+                    datasets.red.push({ x: -y[j], y: x[i], r: colorValue });
+                } else if (k === 1) {
+                    datasets.green.push({ x: -y[j], y: x[i], r: colorValue });
+                } else {
+                    datasets.blue.push({ x: -y[j], y: x[i], r: colorValue });
+                }
+            }
+        } else {
+            for (var k = 0; k < 3; k++) {
+                var colorValue = colors[j][i][k].toFixed(3);
                 if (k === 0) {
                     datasets.red.push({ x: x[i], y: y[j], r: colorValue });
                 } else if (k === 1) {
-                    datasets.green.push({ x: x[i], y: y[j], r: colorValue});
+                    datasets.green.push({ x: x[i], y: y[j], r: colorValue });
                 } else {
-                    datasets.blue.push({ x: x[i], y: y[j], r:colorValue });
+                    datasets.blue.push({ x: x[i], y: y[j], r: colorValue });
                 }
             }
         }
     }
+}
 
-    var ctx = document.getElementById('RedChart').getContext('2d');
+    ctx = document.getElementById('RedChart').getContext('2d');
     var chartRed = new Chart(ctx, {
         type: 'bubble',
         data: {
@@ -122,6 +139,12 @@ var datasets = {
             },
         }
     });
+}
+
+
+
+
+
 
 
 

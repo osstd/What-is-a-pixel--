@@ -1,3 +1,6 @@
+        html {
+            font-size: 16px;
+            }
         .description-container {
             max-width: 600px;
             margin: 0 auto;
@@ -5,13 +8,18 @@
             h1, h2, h3, p {
                         text-align: left;
                       }
-            h2 {
-
+            h1{
+                font-size: 2rem;
                 }
+            h2 {
+                font-size: 1.5 rem;
+               }
             h3 {
                 margin-top: 25px;
-                font-size:22px;
+                font-size:1.25rem;
                 }
+            p{ font-size: 1rem;}
+            li{font-size:0.8rem;}
             b {
                 color:red;
                 }
@@ -22,21 +30,6 @@
             box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
-
-        .row {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
-            margin-bottom: 20px;
-
-        }
-
-        .cell {
-            flex: 1;
-            margin: 20px;
-            text-align: center;
-        }
-
         img {
             width: 350px;
             max-width: 100%;
@@ -92,18 +85,33 @@
             z-index: 1;
         }
 
-        h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-
-        p {
-            font-size: 1.2em;
-        }
-
         .center-charts {
             display: flex;
             justify-content: center;
             align-items: center;
         }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: -10px;
+        }
+
+        .cell {
+            flex: 0 0 calc(25% - 20px);
+            margin: 10px;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 0.7rem;
+            padding-left:20px;
+        }
+
+
+        @media (max-width: 768px) {
+            .cell {
+            flex: 0 0 calc(100% - 20px);
+                    }
+        }
+        .row p {font-size:0.9rem;}
+
 
