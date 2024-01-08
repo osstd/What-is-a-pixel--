@@ -17,7 +17,7 @@ class UploadForm(FlaskForm):
                      validators=[
                          FileRequired(),
                          FileAllowed(['jpg', 'jpeg', 'png'], message='Image is not .JPG or .JPEG or .PNG'),
-                         FileSize(max_size=3.0 * 1024 * 1024, message='Image must be less than 2.5 MB')
+                         FileSize(max_size=2.5 * 1024 * 1024, message='Image must be less than 2.5 MB')
                      ])
     down_sampler = IntegerField("Sampler Factor",
                                 description="Enter a value for down sampling.",
