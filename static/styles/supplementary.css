@@ -258,6 +258,9 @@ small.form-text.text-muted {
 
 .grid-container-2 {
   grid-template-columns: 2fr 1fr;
+  li {
+  font-size: 1.25rem;
+  }
 }
 
 .grid-container-3 {
