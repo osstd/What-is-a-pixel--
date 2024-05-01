@@ -79,24 +79,25 @@ def upload():
     if form.validate_on_submit():
         height, width, colors, w, h = open_image(Image.open(form.file.data), form.down_sampler.data)
         if 'reverse' in request.form:
-            return render_template('result.html', height=height, width=width, colors=colors, w=h, h=w, reverse='true')
-        return render_template('result.html', height=height, width=width, colors=colors, w=w, h=h)
-    return render_template('upload.html', form=form)
+            return render_template('result.html', height=height, width=width, colors=colors, w=h, h=w, page_id=4,
+                                   reverse='true')
+        return render_template('result.html', height=height, width=width, colors=colors, w=w, h=h, page_id=4)
+    return render_template('upload.html', form=form, page_id=3)
 
 
 @app.route('/visualize3')
 def visualize3():
-    return render_template('visualize3.html')
+    return render_template('visualize3.html', page_id=2)
 
 
 @app.route('/visualize2')
 def visualize2():
-    return render_template('visualize2.html')
+    return render_template('visualize2.html', page_id=1)
 
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html', page_id=0)
 
 
 if __name__ == '__main__':

@@ -5,20 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.ico') }}">
     <title>What is a pixel?</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{url_for('static', filename='styles/styles.css')}}">
+    {% block styles %}
+    <!-- Load Bootstrap-Flask CSS here -->
+    {{ bootstrap.load_css() }}
+
+
+    <!-- google font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin=""/>
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap"
+    />
+
+    <!-- custom css -->
+
+    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/supplementary.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/require.css')}}">
+
+    <!--    <link rel="stylesheet" href="{{url_for('static', filename='styles/pages/index.css')}}">-->
+    {% endblock %}
+    {% block scripts %}{% endblock %}
 </head>
-<header class="masthead" id="master">
-    <nav class="navbar">
-        <ul>
-            <li><a href="{{url_for('home')}}">Home</a></li>
-            <li><a href="{{url_for('upload')}}">Try now!</a></li>
-            <li><a href="{{url_for('visualize3')}}">Visualize BarPlot</a></li>
-            <li><a href="{{url_for('visualize2')}}">Visualize ChartPlot</a></li>
-        </ul>
-    </nav>
+<body>
+<!-- Preloader -->
+
+<div class="preloader" data-preloader>
+    <div class="preloader-circle"></div>
+</div>
+
+<!-- Header -->
+
+<div class="masthead" id="master">
+    <header class="header" data-header>
+        <div class="container">
+            <!--        <a href="./index.html" class="logo">-->
+            <!--            <img src="{{ url_for('static', filename='favicon.ico') }}" width="40" alt="OS home"/>-->
+            <!--        </a>-->
+            <nav class="navbar" data-navbar>
+                <ul class="navbar-list">
+                    <li class="navbar-item">
+                        <a
+                                href="{{url_for('home')}}"
+                                class="label-lg navbar-link has-after {% if page_id == 0 %}active{% endif %}"
+                        >Home</a
+                        >
+                    </li>
+                    <li class="navbar-item">
+                        <a
+                                href="{{url_for('visualize3')}}"
+                                class="label-lg navbar-link has-after {% if page_id == 2 %}active{% endif %}"
+                        >Visualize BarPlot</a
+                        >
+                    </li>
+                    <li class="navbar-item">
+                        <a
+                                href="{{url_for('visualize2')}}"
+                                class="label-lg navbar-link has-after {% if page_id == 1 %}active{% endif %}"
+                        >Visualize ChartPlot</a
+                        >
+                    </li>
+                    <li class="navbar-item">
+                        <a
+                                href="{{url_for('upload')}}"
+                                class="label-lg navbar-link has-after {% if page_id == 3 %}active{% endif %}"
+                        >Try now!</a
+                        >
+                    </li>
+                    <li id="results" class="navbar-item {% if page_id !=4 %}not-results{% endif %}">
+                        <a
+                                href="#"
+                                class="label-lg navbar-link has-after {% if page_id == 4 %}active{% endif %}"
+                        >Results</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+
+            <button class="nav-toggle-btn" aria-label="menu" data-nav-toggler>
+                <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+            </button>
+        </div>
+    </header>
     <div class="masthead-content">
         <h1>Pixels</h1>
         <p id="ph">So what's all this?</p>
     </div>
-</header>
+</div>
+

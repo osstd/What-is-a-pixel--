@@ -1,14 +1,13 @@
-{% include 'header.html' %}
-{% from "bootstrap5/form.html" import render_form %}
+{% from "bootstrap5/form.html" import render_form %} {% block content %} {%
+include "header.html" %}
 <body>
-<div class="my-3 ml-3">
-    <h1 style="color:red;">Upload a Photo</h1>
-</div>
-<div class="container justify-content-center">
-    <div class="row justify-content-center">
-        <div class="col-lg-6 col-sm-12">
-            <h2>Upload your images here. Please note:</h2>
-            <ul>
+<div class="grid-container-3">
+    <div>
+        <h2>Upload a Photo</h2>
+    </div>
+    <div class="grid-container-2">
+        <div class="grid-item-2">
+            <ul class="nest">
                 <li>
                     Accepted image file formats .JPEG .JPG or .PNG
                 </li>
@@ -26,20 +25,22 @@
                     For a factor of 10 and a 400px by 400px image, you are sampling 40px by 40px or 1600 points
                 </li>
                 <li>
-                    Check the <a href="{{url_for('visualize3')}}#ex1">3d</a> and <a
-                        href="{{url_for('visualize2')}}#ex1">2d</a> illustrations and the respective image sizes and
+                    Check the <a class="not-tag" href="{{url_for('visualize3')}}#ex1">3d</a> and <a class="not-tag"
+                                                                                                    href="{{url_for('visualize2')}}#ex1">2d</a>
+                    illustrations and the respective image sizes and
                     down sampler selected
                     to get an idea
                 </li>
             </ul>
         </div>
-        <div class="col-lg-6 col-sm-12">
+        <div class="grid-item-2">
             {{ render_form(form, novalidate=True, button_map={"submit": "primary"}) }}
-        <p style="font-size:0.8rem; padding-top:10px;">Try Submit/Process first then read
-            the note on the results page.</p>
+            <p style="font-size:0.8rem; padding-top:10px;">Try Submit/Process first then read
+                the note on the results page.</p>
         </div>
-
-        <p style="font-size:0.6rem; padding-top:10px; padding-left:10px;">
+    </div>
+    <div>
+        <p>
             * It's important to clarify that no images are collected or stored on
             the server during runtime. When you upload an image, the processing occurs in real-time on the server. The
             processing function extracts RGB values, which are then passed to the function responsible for rendering
@@ -53,11 +54,9 @@
 <script>
     var masthead = document.getElementById("master");
     masthead.style.backgroundImage ="url('')";
-    masthead.style.padding = "0 0";
+    masthead.style.padding = "20px 0";
     var pH = document.getElementById("ph");
     pH.style.display = 'none';
-
-
 </script>
 
-{% include 'footer.html' %}
+{% include 'footer.html' %}{% endblock %}

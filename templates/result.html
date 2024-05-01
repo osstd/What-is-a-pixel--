@@ -1,4 +1,4 @@
-{% include 'header.html' %}
+{% include 'header.html' %} {% block scripts %}
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -6,59 +6,52 @@
     var heightData = {{ height|tojson|safe }};
     var widthData = {{ width|tojson|safe }};
     var colorData = {{ colors|tojson|safe }};
-    var reverse = {{ reverse | default("false") }};
+    var reverse = {{ reverse | default("false") }}
+
 
 
 </script>
+{% endblock %}
 <body>
 
-<div class="container pt-2 pb-2 col-lg-5">
+<div class="container">
     <div class="description-container">
-        <h2 style="">RGB Online Chart Results</h2>
-    </div>
-    <div style="font-size:0.8rem; padding-bottom:20px;">Due to different definitions of height and width, your photo analysis <u>could</u> be
-        rotated, for instance some portrait photos taken on iPhones, if so:<br>
-        Go <a href="{{url_for('upload')}}">back</a> and click reverse instead of
-        submit.<br>
-        On mobile devices charts are best viewed in landscape mode.
-    </div>
-</div>
+        <h2>RGB Online Chart Results</h2>
 
-<div class="container-fluid center-charts">
-    <div class="row">
-        <div class="mx-3 py-2 px-2" style="width: {{w}}px; height:{{h}}px;">
-            <canvas id="RedChart" style="width:100%; height:100%;"></canvas>
-        </div>
-        <div class="mx-3 py-2 px-2" style="width: {{w}}px; height:{{h}}px;">
-            <canvas id="GreenChart" style="width:100%; height:100%;"></canvas>
-        </div>
-        <div class="mx-3 py-2 px-2" style="width: {{w}}px; height:{{h}}px;">
-            <canvas id="BlueChart" style="width:100%; height:100%;"></canvas>
-        </div>
+        <p style="font-size:0.8rem; padding-bottom:20px;">Due to different definitions of height and width, your photo
+            analysis <u>could</u> be
+            rotated, for instance some portrait photos taken on iPhones, if so:<br>
+            Go <a class="not-tag" href="{{url_for('upload')}}">back</a> and click reverse instead of
+            submit.<br>
+            On mobile devices charts are best viewed in landscape mode.
+        </p>
     </div>
-</div>
 
-<div class="container mt-4 mb-2 py-2">
-    <div class="row justify-content-center">
-        <div class="px-1 mb-2"><a class="btn btn-primary" href="{{url_for('home')}}">Home</a></div>
-        <div class="px-1 mb-2"><a class="btn btn-primary" href="{{url_for('upload')}}">Try again!</a></div>
-        <div class="px-1 mb-2"><a class="btn btn-primary" href="{{url_for('visualize3')}}">BarPlot</a></div>
-        <div class="px-1 mb-2"><a class="btn btn-primary" href="{{url_for('visualize2')}}">ChartPlot</a></div>
+    <div class="grid-container">
+        <div class="grid-item-3">
+            <div  class="canvas-wrapper">
+                <canvas id="RedChart" style="width: {{w}}px; height:{{h}}px;" class="grid-canvas"></canvas>
+            </div>
+        </div>
+        <div class="grid-item-3">
+            <div class="canvas-wrapper">
+                <canvas id="GreenChart" style="width: {{w}}px; height:{{h}}px;" class="grid-canvas"></canvas>
+            </div>
+        </div>
+        <div class="grid-item-3">
+            <div class="canvas-wrapper">
+                <canvas id="BlueChart" style="width: {{w}}px; height:{{h}}px;" class="grid-canvas"></canvas>
+            </div>
+        </div>
     </div>
 </div>
 <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 <script>
     var masthead = document.getElementById("master");
     masthead.style.backgroundImage ="url('')";
-    masthead.style.padding = "0 0";
+    masthead.style.padding = "20px 0";
     var pH = document.getElementById("ph");
     pH.style.display = 'none';
-
-
-
 </script>
 {% include 'footer.html' %}

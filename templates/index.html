@@ -1,58 +1,57 @@
 {% include 'header.html' %}
-<body>
-<div class="container pt-4 col-lg-5">
+<div class="container">
     <div class="description-container">
         <h2>Image Pixels Visualizer</h2>
         <h3>So what is a pixel?</h3>
-            <p>
-                A pixel, often abbreviated as px, serves as the fundamental building block in a digitally-displayed image.
+        <p>
+            A pixel, often abbreviated as px, serves as the fundamental building block in a digitally-displayed image.
             These tiny units form the basis of a raster, aligning together on a screen to create a cohesive image.
             Collectively, pixels come together to constitute what is known as a raster image.</p>
-            <p>
-                Pixels represent the smallest units of information within a digital picture. Commonly taking on round or
+        <p>
+            Pixels represent the smallest units of information within a digital picture. Commonly taking on round or
             square shapes, they are organized in a two-dimensional grid, creating the visual structure of the image
             on a display.
-            </p>
+        </p>
         <h3>Let's look <b>closer!</b></h3>
-            <p>
-                In the image below, one portion has been magnified many times over so that you can see its individual
-                composition in pixels. As you can see, the pixels approximate the actual image. The more pixels you
-                have, the more closely the image resembles the original.
-            </p>
-            <div>
-                <img src="{{url_for('static', filename='assets/img/index/1.jpg')}}">
-                <p style="font-size:0.6rem;">© Julie Waterhouse Photography</p>
-             </div>
+        <p>
+            In the image below, one portion has been magnified many times over so that you can see its individual
+            composition in pixels. As you can see, the pixels approximate the actual image. The more pixels you
+            have, the more closely the image resembles the original.
+        </p>
+        <div>
+            <img src="{{url_for('static', filename='assets/img/index/1.jpg')}}">
+            <p style="font-size:0.6rem;">© Julie Waterhouse Photography</p>
+        </div>
         <h3>Resolution</h3>
-            <p>
-                The quantity of pixels in an image is occasionally referred to as 'resolution,' though this usage is
-                somewhat imprecise. When we mention resolution in the context of pixel count, it is common to express it as
-                the width by the height. For instance, a resolution of 1280×1024 signifies that there are 1280
-                pixels horizontally and 1024 pixels vertically. This format provides a clear representation of the
-                dimensions, indicating the pixel count from side to side and top to bottom.
-             </p>
+        <p>
+            The quantity of pixels in an image is occasionally referred to as 'resolution,' though this usage is
+            somewhat imprecise. When we mention resolution in the context of pixel count, it is common to express it as
+            the width by the height. For instance, a resolution of 1280×1024 signifies that there are 1280
+            pixels horizontally and 1024 pixels vertically. This format provides a clear representation of the
+            dimensions, indicating the pixel count from side to side and top to bottom.
+        </p>
         <h3>What are pixels made up of?</h3>
-            <p>
-                In order for a pixel to represent a specific color, it is composed of subpixels in the colors
-                red, green, and blue (RGB). These subpixels can have different shapes to create a layout with
-                good image definition and few spaces between the pixel elements.
-            </p>
-            <p>
-                A colored image is composed of multiple colors and all colors can be generated from the three
-                (red, green and blue) colors.
-            </p>
-             <p>
-                The color range between 0-255 represents the intensity of the color for that pixel.That
-                concept is illustrated here:
-            </p>
-            <div>
-                <img src="{{url_for('static', filename='assets/img/index/2.png')}}">
-            </div>
-            <p>
-                The output color of the individual pixel is a combination of the color values of three subpixels
-                in each case. The three colors are mixed additively and can, in this way, assume different
-                values. Additive mixing means superimposing.
-            </p>
+        <p>
+            In order for a pixel to represent a specific color, it is composed of subpixels in the colors
+            red, green, and blue (RGB). These subpixels can have different shapes to create a layout with
+            good image definition and few spaces between the pixel elements.
+        </p>
+        <p>
+            A colored image is composed of multiple colors and all colors can be generated from the three
+            (red, green and blue) colors.
+        </p>
+        <p>
+            The color range between 0-255 represents the intensity of the color for that pixel.That
+            concept is illustrated here:
+        </p>
+        <div>
+            <img src="{{url_for('static', filename='assets/img/index/2.png')}}">
+        </div>
+        <p>
+            The output color of the individual pixel is a combination of the color values of three subpixels
+            in each case. The three colors are mixed additively and can, in this way, assume different
+            values. Additive mixing means superimposing.
+        </p>
         <div>
             <img src="{{url_for('static', filename='assets/img/index/3.jpg')}}">
             <p style="font-size:0.6rem; padding-top:20px;">© www.nikonians.org-forums-user_files-376816</p>
@@ -61,18 +60,18 @@
             If all three primary colors have the maximum value of 255, the output is white. If rgb = (0, 0, 0),
             black appears. The values in between allow around 16.7 million shades of color (256<sup>3</sup>) to be
             displayed. Lighter colours rgb tend to
-            (<span style="color:#FF0000;">1</span>, <span style="color:#00FF00;">1</span>, <span style="color:#0000FF;">1</span>)
+            (<span class="not-span" style="color:#FF0000;">1</span>, <span class="not-span"
+                                                                          style="color:#00FF00;">1</span>, <span
+                class="not-span" style="color:#0000FF;">1</span>)
             darker colours tend to (0, 0, 0).
         </p>
     </div>
 </div>
 
-<div class="container mt-4 mb-2 py-2">
-    <div class="row justify-content-center">
-        <div class="px-1 mb-2"><a class="btn btn-primary btn-r" href="{{url_for('upload')}}">Try now!</a></div>
-        <div class="px-1 mb-2"><a class="btn btn-primary btn-g" href="{{url_for('visualize3')}}">Visualize BarPlot</a></div>
-        <div class="px-1 mb-2"><a class="btn btn-primary btn-b" href="{{url_for('visualize2')}}">Visualize ChartPlot</a></div>
-    </div>
+<div class="btn-grid-container">
+    <button  class="btn-grid-item btn-r"><a href="{{url_for('upload')}}">Try now!</a></button>
+    <button class="btn-grid-item btn-g"><a href="{{url_for('visualize3')}}">Visualize BarPlot</a></button>
+    <button class="btn-grid-item btn-b"><a href="{{url_for('visualize2')}}">Visualize ChartPlot</a></button>
 </div>
 
 {% include 'footer.html' %}
