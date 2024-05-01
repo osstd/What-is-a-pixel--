@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.ico') }}">
     <title>What is a pixel?</title>
+
     {% block styles %}
     <!-- Load Bootstrap-Flask CSS here -->
     {{ bootstrap.load_css() }}
-
 
     <!-- google font -->
 
@@ -21,11 +21,9 @@
 
     <!-- custom css -->
 
-    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="{{url_for('static', filename='styles/supplementary.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='styles/require.css')}}">
 
-    <!--    <link rel="stylesheet" href="{{url_for('static', filename='styles/pages/index.css')}}">-->
     {% endblock %}
     {% block scripts %}{% endblock %}
 </head>
@@ -40,10 +38,7 @@
 
 <div class="masthead" id="master">
     <header class="header" data-header>
-        <div class="container">
-            <!--        <a href="./index.html" class="logo">-->
-            <!--            <img src="{{ url_for('static', filename='favicon.ico') }}" width="40" alt="OS home"/>-->
-            <!--        </a>-->
+        <div class="container nav">
             <nav class="navbar" data-navbar>
                 <ul class="navbar-list">
                     <li class="navbar-item">

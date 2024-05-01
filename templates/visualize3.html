@@ -48,7 +48,7 @@
       <span style="color: rgb(0, 111, 0)">111</span>,<span
         style="color: rgb(0, 0, 1)"
         >1</span
-      >) and white rgb (<span style="color: rgb(255, 0, 0)">255</span>,<span
+      >) and white rgb(<span style="color: rgb(255, 0, 0)">255</span>,<span
         style="color: rgb(0, 255, 0)"
         >255</span
       >, <span style="color: rgb(0, 0, 255)">255</span>) over the four corners</span>`,
@@ -124,93 +124,94 @@
     createGridContainers(3); // Call the function to create and populate grid containers with 3 items per container
   });
 
+
 </script>
-<script src="{{url_for('static', filename='js/navigate.js')}}"></script>
+<script src="{{url_for('static', filename='js/scriptsnavigate.js')}}"></script>
 {% endblock %}
-    <div class="description-container">
-        <h2>
-            Visualizing Pixel Components with 3d Bar Segments
-        </h2>
-        <p>
-            In this visualization, we leverage a 3d bar plot using the matplotlib
-            library in python to provide an intuitive representation of each pixel's
-            data. The goal is to gain insights into the composition of each pixel.
-        </p>
+<div class="description-container">
+    <h2>
+        Visualizing Pixel Components with 3d Bar Segments
+    </h2>
+    <p>
+        In this visualization, we leverage a 3d bar plot using the matplotlib
+        library in python to provide an intuitive representation of each pixel's
+        data. The goal is to gain insights into the composition of each pixel.
+    </p>
 
-        <h3 id="sampling">Interesting simplification, <b>down-sampling</b></h3>
-        <p>
-            Down-sampling not only enhances computational efficiency but also
-            introduces a crucial aspect in the visualization process—maintaining a gap
-            between pixels. This separation, dictated by the down-sampling factor,
-            adheres to the standard in modern digital images. The intentional gap
-            between densely packed pixels aids the human eye in visualizing separate
-            pixels, which aligns with the primary purpose of our visualization tool.
-        </p>
-        <p style="font-size: 1rem">Benefits of pixel separation:</p>
-        <ol>
-            <li>
-                Enhanced Visualization: The separation imposed by down-sampling enhances
-                the visual clarity of individual pixels. This deliberate gap facilitates
-                a clearer understanding of the unique characteristics of each pixel
-                within the image.
-            </li>
-            <li>
-                Standardized Representation: The down-sampling factor introduces a
-                consistent and standardized separation between pixels, aligning with the
-                conventions followed in contemporary digital imaging. This
-                standardization contributes to a more interpretable and meaningful
-                visualization.
-            </li>
-        </ol>
+    <h3 id="sampling">Interesting simplification, <b>down-sampling</b></h3>
+    <p>
+        Down-sampling not only enhances computational efficiency but also
+        introduces a crucial aspect in the visualization process—maintaining a gap
+        between pixels. This separation, dictated by the down-sampling factor,
+        adheres to the standard in modern digital images. The intentional gap
+        between densely packed pixels aids the human eye in visualizing separate
+        pixels, which aligns with the primary purpose of our visualization tool.
+    </p>
+    <span class="nest">Benefits of pixel separation:</span>
+    <ol>
+        <li>
+            Enhanced Visualization: The separation imposed by down-sampling enhances
+            the visual clarity of individual pixels. This deliberate gap facilitates
+            a clearer understanding of the unique characteristics of each pixel
+            within the image.
+        </li>
+        <li>
+            Standardized Representation: The down-sampling factor introduces a
+            consistent and standardized separation between pixels, aligning with the
+            conventions followed in contemporary digital imaging. This
+            standardization contributes to a more interpretable and meaningful
+            visualization.
+        </li>
+    </ol>
 
-        <h3>Visualization technique</h3>
-        <p>
-            The 3d bar plot serves as an effective tool to represent the normalized
-            components of each pixel. Here's how it works:
-        </p>
-        <ol>
-            <li>
-                Bar Height: All bars have the same total height. The height of each of
-                the three individual segments of the bar corresponds to the percentage
-                of the respective color component. A taller segment indicates a higher
-                contribution of that color to the pixel.
-            </li>
-            <li>
-                Color Coding: Bar segments are color-coded to represent the RGB
-                components. For instance, red, green, and blue are visually
-                distinguished to offer a quick understanding of the color composition at
-                each pixel.
-            </li>
-        </ol>
-        <h3>Effectiveness of Normalization</h3>
-        <p>
-            Normalization is a critical aspect of our visualization process. It
-            ensures that the sum of color components at each pixel equals 100%,
-            providing a standardized and comparable representation. This normalization
-            enhances the interpretability of the 3d bar segments plot.
-        </p>
-        <h3>Interactive Exploration</h3>
-        <p>
-            Feel free to interact with the visualization. The python script could be
-            found
-            <a class="not-tag" href="https://github.com/osstd/plot_rgb_3dbar_.git">
-                here.</a
-            >
-            Observe how the down-sampled pixel data unfolds in a 3d space, providing a
-            unique perspective on the color distribution within the image. Feel free
-            to play around with the sampling factor if you have a high-performance
-            machine, it is recommended to always keep a gap, as this imposes a
-            separation between the densely packed pixels. As explained earlier, the
-            separation aids the naked eye with the visualization of separate pixels
-            which is the purpose of this tool.
-        </p>
+    <h3>Visualization technique</h3>
+    <p>
+        The 3d bar plot serves as an effective tool to represent the normalized
+        components of each pixel. Here's how it works:
+    </p>
+    <ol>
+        <li>
+            Bar Height: All bars have the same total height. The height of each of
+            the three individual segments of the bar corresponds to the percentage
+            of the respective color component. A taller segment indicates a higher
+            contribution of that color to the pixel.
+        </li>
+        <li>
+            Color Coding: Bar segments are color-coded to represent the RGB
+            components. For instance, red, green, and blue are visually
+            distinguished to offer a quick understanding of the color composition at
+            each pixel.
+        </li>
+    </ol>
+    <h3>Effectiveness of Normalization</h3>
+    <p>
+        Normalization is a critical aspect of our visualization process. It
+        ensures that the sum of color components at each pixel equals 100%,
+        providing a standardized and comparable representation. This normalization
+        enhances the interpretability of the 3d bar segments plot.
+    </p>
+    <h3>Interactive Exploration</h3>
+    <p>
+        Feel free to interact with the visualization. The python script could be
+        found
+        <a class="not-tag" href="https://github.com/osstd/plot_rgb_3dbar_.git">
+            here.</a
+        >
+        Observe how the down-sampled pixel data unfolds in a 3d space, providing a
+        unique perspective on the color distribution within the image. Feel free
+        to play around with the sampling factor if you have a high-performance
+        machine, it is recommended to always keep a gap, as this imposes a
+        separation between the densely packed pixels. As explained earlier, the
+        separation aids the naked eye with the visualization of separate pixels
+        which is the purpose of this tool.
+    </p>
 
-        <p>
-            This 3d representation simplifies the complex nature of pixel data, making
-            it accessible and insightful. Explore the visual richness and nuances of
-            images through this innovative approach.
-        </p>
-    </div>
+    <p>
+        This 3d representation simplifies the complex nature of pixel data, making
+        it accessible and insightful. Explore the visual richness and nuances of
+        images through this innovative approach.
+    </p>
+</div>
 
 
 <div class="illustrations-container">
@@ -221,27 +222,6 @@
 
 <div class="full-image-container">
     <img src="" alt="" id="full-image"/>
-</div>
-
-<div class="note-container">
-    <p class="note">
-        Note: the images shown above in the first column of every row have been
-        slightly modified in formatting. The actual dimensions are reported below
-        each image. Also, the images are shown true to their dimensions on the
-        illustrations in the ChartPlot section.
-    </p>
-</div>
-
-<div class="btn-grid-container">
-    <button class="btn-grid-item btn-r">
-        <a href="{{url_for('upload')}}">Try now!</a>
-    </button>
-    <button class="btn-grid-item btn-g">
-        <a href="{{url_for('visualize3')}}">Visualize BarPlot</a>
-    </button>
-    <button class="btn-grid-item btn-b">
-        <a href="{{url_for('visualize2')}}">Visualize ChartPlot</a>
-    </button>
 </div>
 
 {% include 'footer.html' %}

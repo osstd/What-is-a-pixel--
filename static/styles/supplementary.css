@@ -26,7 +26,7 @@
     font-size: 1.15rem;
   }
   b {
-    color: red;
+    color: var(--pink-red);
   }
 }
 
@@ -63,17 +63,50 @@ img {
 }
 
 .not-tag {
-  color: var(--pink-red);
+  color: rgb(255, 0, 0);
   text-decoration: none;
+  transition: color 0.3s ease;
 }
+
+.not-tag:hover {
+  animation-name: colorTransition;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes colorTransition {
+  0% {
+    color: rgb(255, 0, 0);
+  }
+  33.3% {
+    color: rgb(0, 255, 0);
+  }
+  66.6% {
+    color: rgb(0, 0, 255);
+  }
+  100% {
+    color: rgb(255, 0, 0);
+  }
+}
+
 .illustrations-container h2 {
   font-size: 2rem;
 }
 
 ol,
+ul,
 ul.nest,
 ol.nest {
-  padding: 0 5%;
+  padding: 2% 5%;
+}
+
+ol.nest {
+  list-style-type: upper-alpha;
+}
+
+ul.nest {
+  list-style-type: lower-roman;
 }
 
 span.nest {
@@ -81,39 +114,32 @@ span.nest {
 }
 
 .note {
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
-ol.nest {
-  list-style-type: upper-roman;
-}
 .btn-grid-container {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(125px, 1fr)
-  ); /* Three columns on mobile */
-  max-width: 600px; /* Maximum width */
-  margin: 0 auto; /* Center the grid container */
-  gap: 20px; /* Gap between grid items */
+  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+  max-width: 600px;
+  margin: 0 auto;
+  gap: 20px;
   padding: 3% 3%;
 }
 
 .btn-grid-item {
-  padding: 20px; /* Padding around the grid items */
-  border: none; /* Remove borders from buttons */
-  border-radius: 10px; /* Rounded corners for buttons */
-  text-align: center; /* Center text inside buttons */
-  cursor: pointer; /* Cursor style for buttons */
-  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
   font-size: 1.25rem;
   font-weight: bold;
   color: var(--white_a75);
 }
 
-/* Hover effect for buttons */
 .btn-grid-item:hover {
-  background-color: #d9d9d9; /* Darker background color on hover */
+  background-color: #d9d9d9;
 }
 
 .btn-r {
@@ -127,12 +153,60 @@ ol.nest {
 .btn-b {
   background: #0000ff;
 }
+
+.ff-submit-btn,
+.ff-reverse-btn {
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 2% 1%;
+  cursor: pointer;
+  max-width: fit-content;
+}
+
+.ff-submit-btn {
+  background-color: var(--pink-red);
+}
+.ff-reverse-btn {
+  background-color: var(--jet);
+}
+
+.ff-submit-btn:hover {
+  animation-name: backgroundColorTransition;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes backgroundColorTransition {
+  0% {
+    background-color: rgb(255, 0, 0);
+  }
+  33.3% {
+    background-color: rgb(0, 0, 255);
+  }
+  66.6% {
+    background-color: rgb(0, 255, 0);
+  }
+  100% {
+    background-color: var(--pink-red);
+  }
+}
+
+.ff-reverse-btn:hover {
+  background-color: #d9d9d9;
+}
+
+small.form-text.text-muted {
+  font-size: 1rem;
+}
 .note-container {
   max-width: 100%;
   background: #fff;
   margin: 0 1%;
   padding: 0.5% 0.5%;
 }
+
 /* grid for illustrations */
 
 .illustrations-container {
@@ -171,7 +245,7 @@ ol.nest {
 .grid-container-3 {
   max-width: 98%;
   display: grid;
-  grid-template-rows: 5% 85% 10%;
+  grid-template-rows: 4% 85% 11%;
   gap: 10px;
   margin: 3% 3%;
   padding: 2% 2%;
@@ -207,6 +281,10 @@ ol.nest {
 .grid-item-3 {
   position: relative;
   overflow: hidden;
+}
+
+.grid-item-2 {
+  padding: 1% 2%;
 }
 
 .image-wrapper,

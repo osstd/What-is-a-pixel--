@@ -8,7 +8,7 @@
       <span style="color: rgb(0, 111, 0)">111</span>,<span
         style="color: rgb(0, 0, 1)"
         >1</span
-      >) and white rgb (<span style="color: rgb(255, 0, 0)">255</span>,<span
+      >) and white rgb(<span style="color: rgb(255, 0, 0)">255</span>,<span
         style="color: rgb(0, 255, 0)"
         >255</span
       >, <span style="color: rgb(0, 0, 255)">255</span>) over the four corners</span>`,
@@ -210,18 +210,15 @@
 
 
 </script>
-<script src="{{url_for('static', filename='js/navigate.js')}}"></script>
+<script src="{{url_for('static', filename='js/scriptsnavigate.js')}}"></script>
 {% endblock %}
 <div class="description-container">
-    <h2>
-        Visualizing Pixel Components with 2D Charts
-    </h2>
+    <h2>Visualizing Pixel Components with 2d Charts</h2>
     <p>
         In our exploration of pixel data, we employ 2d chart plots to provide a
         clear visualization of the unpacking process and the effectiveness of
-        down-sampling. The goal is to shed light on the individual RGB components
-        of each pixel, offering insights into the color distribution within the
-        image.
+        down-sampling. The goal is to shed light on the individual RGB components of
+        each pixel, offering insights into the color distribution within the image.
     </p>
     <h3><b>Down-sampling</b></h3>
     <p>
@@ -240,19 +237,19 @@
     <ol>
         <li>
             Three Separate Plots:
-            <ul class="nest">
+            <ol class="nest">
                 <li>
                     In our approach, each pixel is unpacked into its RGB components.
                 </li>
                 <li>
-                    The red, green, and blue components are individually plotted on
-                    three separate charts.
+                    The red, green, and blue components are individually plotted on three
+                    separate charts.
                 </li>
                 <li>
                     Each chart corresponds to a specific RGB component, namely the red
                     plot, green plot, and blue plot.
                 </li>
-            </ul>
+            </ol>
         </li>
         <li>
             Markers:<br/>
@@ -265,10 +262,10 @@
                     <ul class="nest">
                         <li>The marker used in the plots is a circular marker.</li>
                         <li>
-                            When the color in the r or g or b channel is divided by 255 in
-                            the preprocessor we obtain a value that ranges anywhere between
-                            1 for 255 and 0. Any color above 0.175 in the r or g or b
-                            channel is plotted on the corresponding plot using that value.
+                            When the color in the r or g or b channel is divided by 255 by the
+                            preprocessor we obtain a value that ranges anywhere between 1 for
+                            255 and 0. Any color above 0.175, i.e., &isin; [0.175, 1] in the r or g or b channel is
+                            plotted on the corresponding plot using that value.
                         </li>
                         <li>
                             0.175 is chosen to emphasize the significance of the different
@@ -283,17 +280,18 @@
                     <ul class="nest">
                         <li>The marker used in the plots is a circular marker.</li>
                         <li>
-                            Any value above 0.175 in the r or g or b channel is plotted on
-                            the corresponding plot using that value.
+                            Any value above 0.175 in the r or g or b channel is plotted on the
+                            corresponding plot using that value, i.e., &isin; [0.175, 1].
                         </li>
                         <li>
-                            Any value between 0.1 and 0.175 is plotted using a black
-                            circular marker that is white on the inside to highlight less
-                            significant contributions.
+                            Any value between 0.1 and 0.175, i.e., &isin; [0.1, 0.175] is plotted using a black circular
+                            marker that is white on the inside to highlight less significant
+                            contributions.
                         </li>
                         <li>
-                            Any value between 0 and 0.1 is plotted using a black star to
-                            show black pixels and pixels that tend to black rgb(0,0,0).
+                            Any value between 0 and 0.1, i.e., &isin;
+                            [0, 0.1] is plotted using a black star to show
+                            black pixels and pixels that tend to black rgb(0,0,0).
                         </li>
                     </ul>
                 </li>
@@ -302,12 +300,11 @@
                     <span class="nest">RGB values plot:</span>
                     <ul class="nest">
                         <li>
-                            The actual value of the r or g or b channel component is
-                            plotted.
+                            The actual value of the r or g or b channel component is plotted.
                         </li>
                         <li>
-                            It is recommended to use a higher down sampler to be able to
-                            read the individual pixel (r, g, b) values readily.
+                            It is recommended to use a higher downsampling factor for this plot type to read the
+                            individual pixel (r, g, b) values more easily.
                         </li>
                     </ul>
                 </li>
@@ -315,7 +312,7 @@
         </li>
         <li>
             Color Representation:
-            <ul class="nest">
+            <ol class="nest">
                 <li>
                     The color of each circle on the red, green, or blue plot corresponds
                     to the color of the respective RGB component at that pixel.
@@ -324,16 +321,14 @@
                     This color representation provides a visual link between the charts,
                     offering a comprehensive view of the color distribution.
                 </li>
-            </ul>
+            </ol>
         </li>
     </ol>
 
     <h3>Interactive Exploration</h3>
     <p>
         Feel free to interact with the charts. RGB plot
-        <a class="not-tag" href="https://github.com/osstd/plot_rgb_.git">
-            here.
-        </a>
+        <a class="not-tag" href="https://github.com/osstd/plot_rgb_.git"> here. </a>
         RGB plot with emphasis on Black
         <a class="not-tag" href="https://github.com/osstd/plot_rgb_black_.git">
             here.
@@ -343,17 +338,16 @@
             here.
         </a>
         Observe how the down-sampled pixel data is represented on the red, green,
-        and blue plots. The circular markers offer a unique perspective on the
-        color composition, making it easier to discern and analyze individual
-        pixel components.
+        and blue plots. The circular markers offer a unique perspective on the color
+        composition, making it easier to discern and analyze individual pixel
+        components.
     </p>
 
     <p>
-        This 2d representation simplifies the intricacies of pixel data, providing
-        a visual journey into the RGB components of each pixel within the image.
+        This 2d representation simplifies the intricacies of pixel data, providing a
+        visual journey into the RGB components of each pixel within the image.
     </p>
 </div>
-
 
 <div class="illustrations-container">
     <div class="title-container">
@@ -365,15 +359,4 @@
     <img src="" alt="" id="full-image"/>
 </div>
 
-<div class="btn-grid-container">
-    <button class="btn-grid-item btn-r">
-        <a href="{{url_for('upload')}}">Try now!</a>
-    </button>
-    <button class="btn-grid-item btn-g">
-        <a href="{{url_for('visualize3')}}">Visualize BarPlot</a>
-    </button>
-    <button class="btn-grid-item btn-b">
-        <a href="{{url_for('visualize2')}}">Visualize ChartPlot</a>
-    </button>
-</div>
 {% include 'footer.html' %}

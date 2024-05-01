@@ -7,7 +7,7 @@ include "header.html" %}
     </div>
     <div class="grid-container-2">
         <div class="grid-item-2">
-            <ul class="nest">
+            <ul>
                 <li>
                     Accepted image file formats .JPEG .JPG or .PNG
                 </li>
@@ -40,23 +40,16 @@ include "header.html" %}
         </div>
     </div>
     <div>
-        <p>
+        <p class="note">
             * It's important to clarify that no images are collected or stored on
             the server during runtime. When you upload an image, the processing occurs in real-time on the server. The
             processing function extracts RGB values, which are then passed to the function responsible for rendering
-            the results page.
-            The data points derived from the processing are embedded directly in the HTML and used exclusively by your
-            browser to plot the three charts you see. Importantly, once you refresh the page, all data is automatically
+            the results page. Importantly, once you refresh or close the page, all data is automatically
             and permanently erased.
         </p>
     </div>
 </div>
-<script>
-    var masthead = document.getElementById("master");
-    masthead.style.backgroundImage ="url('')";
-    masthead.style.padding = "20px 0";
-    var pH = document.getElementById("ph");
-    pH.style.display = 'none';
-</script>
+
+<script src="{{ url_for('static', filename='js/scriptssupplementary.js') }}"></script>
 
 {% include 'footer.html' %}{% endblock %}

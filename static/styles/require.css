@@ -309,6 +309,7 @@ body.loaded {
 .nav-toggle-btn {
   color: var(--jet);
   font-size: 3rem;
+  margin-left: auto;
 }
 
 .navbar {

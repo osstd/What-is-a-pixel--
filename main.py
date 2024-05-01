@@ -26,8 +26,8 @@ class UploadForm(FlaskForm):
                                     validators.NumberRange(min=10, message="Value must be greater than or equal to 10.")
                                 ]
                                 )
-    submit = SubmitField("Submit/Process")
-    reverse = SubmitField("Reverse")
+    submit = SubmitField("Submit/Process", render_kw={'class': 'ff-submit-btn'})
+    reverse = SubmitField("Reverse", render_kw={'class': 'ff-reverse-btn'})
 
 
 def open_image(image, down_sampler):

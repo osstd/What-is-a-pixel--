@@ -7,9 +7,6 @@
     var widthData = {{ width|tojson|safe }};
     var colorData = {{ colors|tojson|safe }};
     var reverse = {{ reverse | default("false") }}
-
-
-
 </script>
 {% endblock %}
 <body>
@@ -45,13 +42,8 @@
         </div>
     </div>
 </div>
-<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 
-<script>
-    var masthead = document.getElementById("master");
-    masthead.style.backgroundImage ="url('')";
-    masthead.style.padding = "20px 0";
-    var pH = document.getElementById("ph");
-    pH.style.display = 'none';
-</script>
+<script src="{{ url_for('static', filename='js/scriptscharts.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/scriptssupplementary.js') }}"></script>
 {% include 'footer.html' %}
