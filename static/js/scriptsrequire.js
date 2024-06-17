@@ -37,10 +37,8 @@ function updateCurrentDateTime() {
   var currentDateTimeElement = document.getElementById("currentDateTime");
   var currentDate = new Date();
 
-  //Year only for statement
   var currentYear = currentDate.getFullYear();
 
-  // Insert year
   document.getElementById("currentYear").innerText = currentYear;
 }
 updateCurrentDateTime();

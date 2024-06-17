@@ -3,29 +3,17 @@ document.addEventListener("DOMContentLoaded", function () {
     .querySelectorAll(".grid-container, .grid-container-4")
     .forEach((container) => {
       container.querySelectorAll(".grid-item").forEach((item, index) => {
-        item.dataset.index = index; // Assigning index to each grid item
+        item.dataset.index = index;
         item.addEventListener("click", (event) => {
           const clickedItem = event.target.closest(".grid-item");
-          if (!clickedItem) return; // Clicked outside a grid item
+          if (!clickedItem) return;
           const containerItems = Array.from(
             container.querySelectorAll(".grid-item")
           );
-          let fullViewIndex = parseInt(clickedItem.dataset.index); // Update full view index
+          let fullViewIndex = parseInt(clickedItem.dataset.index);
 
-          // Activate full image mode with clicked item
           activateFullImage(clickedItem);
 
-          // Log all items in the container with their indices
-          console.log(
-            "All Items:",
-            containerItems.map((item) => ({
-              text: item.textContent.trim(),
-              index: item.dataset.index,
-            }))
-          );
-          console.log(`Index of the image in full view is: ${fullViewIndex}`);
-
-          // Keyboard navigation within the container
           document.addEventListener("keydown", (keyEvent) => {
             if (
               document.querySelector(".full-image-container").style.display ===

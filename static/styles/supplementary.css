@@ -207,8 +207,6 @@ small.form-text.text-muted {
   padding: 0.5% 0.5%;
 }
 
-/* grid for illustrations */
-
 .illustrations-container {
   max-width: 100%;
   min-height: 100vh;
@@ -259,7 +257,7 @@ small.form-text.text-muted {
 .grid-container-2 {
   grid-template-columns: 2fr 1fr;
   li {
-  font-size: 1.25rem;
+    font-size: 1.25rem;
   }
 }
 
